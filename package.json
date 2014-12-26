@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/fishin/brag",
   "dependencies": {
-    "smtp-connection": "1.1.x"
+    "hoek": "2.x.x",
+    "nodemailer": "1.3.x"
   },
   "devDependencies": {
     "code": "1.x.x",

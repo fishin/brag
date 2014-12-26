@@ -9,25 +9,28 @@ var expect = Code.expect;
 var describe = lab.describe;
 var it = lab.it;
 
-var bragPath = '/tmp/testbrag';
-
 describe('brag', function () {
 
-    it('getNotifyCommand new', function (done) {
+    it('sendEmail', function (done) {
+
         var notify = {
             to: 'lloyd.benson@gmail.com',
             subject: '[ficion] subject',
-            body: 'body'
+            message: 'message'
         };
-        var brag = new Brag;
-        var commands = brag.getNotifyCommands(notify);
-        expect(commands).to.include([ 'echo "body" | /usr/bin/mail -s "[ficion] subject" lloyd.benson@gmail.com' ]);
-        done();
+        var brag = new Brag({});
+        brag.sendEmail(notify, function (err, info) {
+
+            //console.log(err);
+            //console.log(info);
+            expect(err).to.exist();
+            done();
+        });
     });
 
     it('getElements', function (done) {
 
-        var brag = new Brag;
+        var brag = new Brag({});
         var elements = brag.getElements();
         expect(elements).to.be.length(3);
         done();
