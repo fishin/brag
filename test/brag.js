@@ -20,9 +20,8 @@ describe('brag', function () {
             body: 'body'
         };
         var brag = new Brag;
-        var command = brag.getNotifyCommand(notify);
-        //console.log(command);
-        expect(command).to.contain('echo "body" | /usr/bin/mail -s "[ficion] subject" lloyd.benson@gmail.com');
+        var commands = brag.getNotifyCommands(notify);
+        expect(commands).to.include([ 'echo "body" | /usr/bin/mail -s "[ficion] subject" lloyd.benson@gmail.com' ]);
         done();
     });
 
@@ -30,7 +29,6 @@ describe('brag', function () {
 
         var brag = new Brag;
         var elements = brag.getElements();
-        //console.log(elements);
         expect(elements).to.be.length(3);
         done();
     });
