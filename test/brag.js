@@ -11,7 +11,7 @@ var it = lab.it;
 
 describe('brag', function () {
 
-    it('sendEmail', function (done) {
+    it('notify', function (done) {
 
         var notify = {
             to: 'lloyd.benson@gmail.com',
@@ -19,7 +19,7 @@ describe('brag', function () {
             message: 'message'
         };
         var brag = new Brag({});
-        brag.sendEmail(notify, function (err, info) {
+        brag.notify(notify, function (err, info) {
 
             //console.log(err);
             //console.log(info);
