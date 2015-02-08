@@ -3,10 +3,6 @@
   "version": "0.0.1",
   "description": "brag ======",
   "main": "index.js",
-  "scripts": {
-    "test": "lab -a code -t 100 -v -m 10000",
-    "json": "lab -a code -r json -t 100 -o lab.json -m 10000"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/fishin/brag"
@@ -17,6 +13,13 @@
     "url": "https://github.com/fishin/brag/issues"
   },
   "homepage": "https://github.com/fishin/brag",
+  "engines": {
+    "node": ">=0.12.x"
+  },
+  "scripts": {
+    "test": "lab -a code -t 100 -v -m 10000",
+    "json": "lab -a code -r json -t 100 -o lab.json -m 10000"
+  },
   "dependencies": {
     "hoek": "2.x.x",
     "nodemailer": "1.3.x"
