@@ -1,8 +1,10 @@
-var Code = require('code');
-var Lab = require('lab');
-var Brag = require('../lib');
+'use strict';
 
-var internals = {
+const Code = require('code');
+const Lab = require('lab');
+const Brag = require('../lib');
+
+const internals = {
     defaults: {
         transporter: {
             service: 'gmail',
@@ -14,22 +16,22 @@ var internals = {
     }
 };
 
-var lab = exports.lab = Lab.script();
-var expect = Code.expect;
-var describe = lab.describe;
-var it = lab.it;
+const lab = exports.lab = Lab.script();
+const expect = Code.expect;
+const describe = lab.describe;
+const it = lab.it;
 
-describe('brag', function () {
+describe('brag', () => {
 
-    it('notify', function (done) {
+    it('notify', (done) => {
 
-        var notify = {
+        const notify = {
             to: 'lloyd.benson@gmail.com',
             subject: 'subject',
             message: 'message'
         };
-        var brag = new Brag(internals.defaults);
-        brag.notify(notify, function (err, info) {
+        const brag = new Brag(internals.defaults);
+        brag.notify(notify, (err, info) => {
 
             //console.log(err);
             //console.log(info);
@@ -38,15 +40,15 @@ describe('brag', function () {
         });
     });
 
-    it('notify no transporter', function (done) {
+    it('notify no transporter', (done) => {
 
-        var notify = {
+        const notify = {
             to: 'lloyd.benson@gmail.com',
             subject: 'subject',
             message: 'message'
         };
-        var brag = new Brag({});
-        brag.notify(notify, function (err, info) {
+        const brag = new Brag({});
+        brag.notify(notify, (err, info) => {
 
             //console.log(err);
             expect(err).to.equal('no transporter provided');
@@ -54,10 +56,10 @@ describe('brag', function () {
         });
     });
 
-    it('getElements', function (done) {
+    it('getElements', (done) => {
 
-        var brag = new Brag(internals.defaults);
-        var elements = brag.getElements();
+        const brag = new Brag(internals.defaults);
+        const elements = brag.getElements();
         expect(elements).to.be.length(3);
         done();
     });
